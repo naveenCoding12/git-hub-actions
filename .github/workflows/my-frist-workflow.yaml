@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: welcome message
         run: echo "my first GitHub Actions"
+        
+      - name: checkout
+        uses: actions/checkout@v4
 
       - name: list files
         run: ls
