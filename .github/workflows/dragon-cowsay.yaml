@@ -11,4 +11,4 @@ jobs:
         - name: Run the shell script 
           run: |
                chmod +x dragon.sh
-               ./dragon.sh
+               ./scripts/dragon.sh
