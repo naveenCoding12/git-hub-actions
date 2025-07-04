@@ -1,0 +1,14 @@
+name: dragon-cowsay
+on: [push]
+jobs:
+    dragon:
+        runs-on: ubuntu:latest
+        steps:
+
+        - name: checkout Repo
+          uses: actions/checkout@v4
+        
+        - name: Run the shell script 
+          run: |
+               chmod +x dragon.sh
+               ./dragon.sh
