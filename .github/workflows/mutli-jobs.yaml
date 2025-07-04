@@ -1,0 +1,30 @@
+name: mutli-jobs
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Build
+              run: echo "project is building stage"
+            - name: sleep
+              run: sleep 20
+    
+    test:
+        runs-on: ubuntu-latest
+        needs: build
+
+        steps:
+            - name: Test
+              run: echo "project is test phase"
+            - name: sleep
+              run: sleep 10
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs: [build,test]
+
+        steps:
+            - name: deploy
+              run: echo "deploying the cod ein env"
