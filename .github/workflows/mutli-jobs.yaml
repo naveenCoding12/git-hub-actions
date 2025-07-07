@@ -13,7 +13,7 @@ jobs:
               run: echo "hi hello welcome to git hub actions" >> naveen.txt
 
             - name: upload the file
-              uses: actions/upload-artifacts@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: naveen.txt-file
                 path: naveen.txt
@@ -28,9 +28,9 @@ jobs:
         steps:
             - name: Test
               run: echo "project is test phase"
-              
+
             - name: download the file
-              uses: actions/download-artifacts@v3
+              uses: actions/download-artifact@v4
               with:
                 name: naveen.txt
 
