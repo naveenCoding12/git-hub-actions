@@ -1,16 +1,25 @@
 name: matrix
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main  # Specify your branch name here (if needed)
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   deploy:
     strategy:
+      fail-fast: false
+      max-parallel: 1
       matrix:
         os: [ubuntu-latest, windows-latest]
         images: [hello-world, alpine]
+        exclude:
+            - images: alpine
+              os: windows-latest
+        iclude:
+            - images: amd64/alpine
+              os: windows-latest
     runs-on: ${{ matrix.os }}
-
     steps:
       - name: Echo docker details
         run: docker info
